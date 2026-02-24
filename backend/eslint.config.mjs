@@ -15,7 +15,7 @@ export default defineConfig([
       globals: globals.node,
     },
     rules: {
-      "no-console": "warn",
+      "no-console": "error",
       "no-var": "error",
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/explicit-function-return-type": "error",
