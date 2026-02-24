@@ -10,7 +10,7 @@
     "format:check": "prettier --check \"backend/src/**/*.{ts,json}\" \"frontend/src/**/*.{ts,tsx,json}\"",
     "lint": "concurrently -n frontend,backend -c magenta,red \"npm run lint --prefix frontend\" \"npm run lint --prefix backend\"",
     "test": "concurrently -n frontend,backend -c cyan,blue \"npm test --prefix frontend -- --run\" \"npm test --prefix backend\"",
-    "check": "concurrently -n format,lint,tests -c yellow,magenta,cyan \"npm run format\" \"npm run lint\" \"npm run test\"",
+    "check": "concurrently -n format,lint,tests -c yellow,magenta,cyan \"npm run format:check\" \"npm run lint\" \"npm run test\"",
     "prepare": "husky"
   },
   "devDependencies": {
