@@ -41,14 +41,15 @@ npm start
 | Service  | URL                   |
 |----------|-----------------------|
 | Frontend | http://localhost:5173 |
-| Backend  | http://localhost:3000 |
+| Backend  | http://localhost:5500 |
 
 ## Variables d'environnement
 
-Copier le fichier d'exemple et le compléter :
+Copier les fichiers d'exemple et les compléter :
 
 ```bash
 cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
 ```
 
 ## Structure du projet
