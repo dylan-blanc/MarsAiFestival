@@ -319,6 +319,89 @@ Si des erreurs sont prévisibles (mock d'API, dépendance manquante), les signal
 
 ---
 
+## Commit — Convention obligatoire
+
+> Source : https://buzut.net/cours/versioning-avec-git/bien-nommer-ses-commits
+
+### Format
+
+```
+<type>(<scope>): <sujet>
+
+<description optionnelle>
+
+<footer optionnel>
+```
+
+### Règles du sujet
+
+- **50 caractères maximum**
+- **Impératif présent** — `add` et non `added` ou `adds`
+- **Pas de majuscule** en début, **pas de point** à la fin
+- Court, précis, descriptif
+
+### Types disponibles
+
+| Type | Usage |
+|---|---|
+| `feat` | Nouvelle fonctionnalité |
+| `fix` | Correction de bug |
+| `test` | Ajout ou modification de tests |
+| `refactor` | Réécriture sans nouvelle feature ni bug fix |
+| `style` | Formatage, indentation (aucun impact fonctionnel) |
+| `docs` | Documentation uniquement |
+| `perf` | Amélioration des performances |
+| `build` | Changement de build ou dépendances externes |
+| `ci` | Fichiers de configuration CI/CD |
+| `revert` | Annulation d'un commit précédent |
+
+### Scope — exemples pour ce projet
+
+`navbar` · `auth` · `home` · `chat` · `api` · `db` · `tests` · `config`
+
+### Description (corps du message)
+
+- Expliquer **pourquoi** et non **comment** (le diff montre le comment)
+- Impératif présent
+- Séparé du sujet par une ligne vide
+
+### Footer
+
+- Réservé aux **breaking changes** et aux **références d'issues**
+- Exemple : `BREAKING CHANGE: suppression de l'endpoint /api/v1`
+- Exemple : `Closes #42`
+
+### Exemples
+
+```bash
+# Nouvelle feature
+feat(navbar): add responsive mobile menu
+
+# Correction de bug
+fix(auth): handle null token on page reload
+
+# Tests
+test(chat): add unit tests for message submission
+
+# Refactoring
+refactor(api): extract error handling into helper
+
+# Breaking change
+feat(auth): replace JWT with session cookies
+
+BREAKING CHANGE: clients doivent supprimer leurs tokens localStorage
+```
+
+### INTERDIT
+
+- `fix stuff` — trop vague
+- `WIP` seul — pas de contexte
+- `update` — que met-on à jour ?
+- Mélanger plusieurs features dans un seul commit
+- Commiter du code non testé
+
+---
+
 ## Checklist finale — Vérifie avant de soumettre
 
 - [ ] Les questions de l'étape 1 ont été posées et les réponses reçues
