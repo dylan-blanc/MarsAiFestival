@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import Home from "./Home";
 
@@ -8,23 +8,20 @@ describe("Home", () => {
         expect(screen.getByRole("heading", { name: /mars\s*ai/i })).toBeDefined();
     });
 
-    it("affiche le message de courage", () => {
+    it("affiche le badge de l'édition", () => {
         render(<Home />);
-        expect(screen.getByText(/bon courage à toute l'équipe/i)).toBeDefined();
+        expect(screen.getByText(/Festival International/i)).toBeDefined();
     });
 
-    it("affiche tous les membres de l'équipe", () => {
+    it("affiche les partenaires", () => {
         render(<Home />);
-        const members = ["Mickaël", "Valérie", "Jean-Deny", "Dylan", "Stéphane"];
-        members.forEach((name) => {
-            expect(screen.getByText(name)).toBeDefined();
-        });
+        expect(screen.getByText(/La Plateforme/i)).toBeDefined();
+        expect(screen.getByText(/Mobile Film Festival/i)).toBeDefined();
     });
 
-    it("affiche le footer avec l'année courante", () => {
+    it("ouvre le lecteur vidéo au clic sur Démo", () => {
         render(<Home />);
-        const currentYear = new Date().getFullYear().toString();
-        const footer = screen.getByRole("contentinfo");
-        expect(footer.textContent?.includes(currentYear)).toBe(true);
+        fireEvent.click(screen.getByRole("button", { name: /démo/i }));
+        expect(screen.getByRole("dialog", { name: /lecteur vidéo/i })).toBeDefined();
     });
 });
