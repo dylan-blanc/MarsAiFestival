@@ -38,11 +38,17 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+.aurora-1 {
+    animation: aurora1 8s ease-in-out infinite alternate;
+}
+
+.aurora-2 {
+    animation: aurora2 10s ease-in-out infinite alternate;
 }
 
 h1 {
