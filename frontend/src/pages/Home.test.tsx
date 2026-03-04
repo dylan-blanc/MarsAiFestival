@@ -1,27 +1,30 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import Home from "./Home";
 
 describe("Home", () => {
-    it("affiche le heading principal marsAI", () => {
+    it("affiche le titre Bonjour", () => {
         render(<Home />);
-        expect(screen.getByRole("heading", { name: /mars\s*ai/i })).toBeDefined();
+        expect(screen.getByRole("heading", { name: /bonjour/i })).toBeDefined();
     });
 
-    it("affiche le badge de l'édition", () => {
+    it("affiche tous les membres de l'équipe", () => {
         render(<Home />);
-        expect(screen.getByText(/Festival International/i)).toBeDefined();
+        expect(screen.getByText("Mickael")).toBeDefined();
+        expect(screen.getByText("Jean-Denis")).toBeDefined();
+        expect(screen.getByText("Stéphane")).toBeDefined();
+        expect(screen.getByText("Valérie")).toBeDefined();
+        expect(screen.getByText("Wiem")).toBeDefined();
+        expect(screen.getByText("Dylan")).toBeDefined();
     });
 
-    it("affiche les partenaires", () => {
+    it("affiche le badge du projet", () => {
         render(<Home />);
-        expect(screen.getByText(/La Plateforme/i)).toBeDefined();
-        expect(screen.getByText(/Mobile Film Festival/i)).toBeDefined();
+        expect(screen.getByText(/MarsAI Festival/i)).toBeDefined();
     });
 
-    it("ouvre le lecteur vidéo au clic sur Démo", () => {
+    it("affiche le contenu dans un main", () => {
         render(<Home />);
-        fireEvent.click(screen.getByRole("button", { name: /démo/i }));
-        expect(screen.getByRole("dialog", { name: /lecteur vidéo/i })).toBeDefined();
+        expect(screen.getByRole("main")).toBeDefined();
     });
 });

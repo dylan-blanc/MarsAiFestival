@@ -1,13 +1,12 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import DepotPage from "./pages/DepotPage";
 import Home from "./pages/Home";
 
-const App = () => {
+const App = (): React.JSX.Element => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/soumettre" element={<DepotPage />} />
             </Routes>
         </BrowserRouter>
     );
