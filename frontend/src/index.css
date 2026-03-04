@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@keyframes aurora1 {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(4%, 6%) scale(1.1); }
+}
+@keyframes aurora2 {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(-4%, -6%) scale(1.15); }
+}
+@keyframes sep-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
